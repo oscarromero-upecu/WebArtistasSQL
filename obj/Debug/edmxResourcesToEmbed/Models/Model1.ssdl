@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UPECUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="artists">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tracks">
+    <Key>
+      <PropertyRef Name="tra_id" />
+    </Key>
+    <Property Name="tra_id" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="artist" Type="int" />
+  </EntityType>
+  <Association Name="FK__tracks__artist__5FB337D6">
+    <End Role="artists" Type="Self.artists" Multiplicity="0..1" />
+    <End Role="tracks" Type="Self.tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artists">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tracks">
+        <PropertyRef Name="artist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UPECUModelStoreContainer">
+    <EntitySet Name="artists" EntityType="Self.artists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tracks" EntityType="Self.tracks" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tracks__artist__5FB337D6" Association="Self.FK__tracks__artist__5FB337D6">
+      <End Role="artists" EntitySet="artists" />
+      <End Role="tracks" EntitySet="tracks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UPECUModelStoreContainer" CdmEntityContainer="UPECUEntities1">
+    <EntitySetMapping Name="artists">
+      <EntityTypeMapping TypeName="UPECUModel.artists">
+        <MappingFragment StoreEntitySet="artists">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tracks">
+      <EntityTypeMapping TypeName="UPECUModel.tracks">
+        <MappingFragment StoreEntitySet="tracks">
+          <ScalarProperty Name="artist" ColumnName="artist" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="tra_id" ColumnName="tra_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
