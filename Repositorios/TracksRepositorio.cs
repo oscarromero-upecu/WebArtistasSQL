@@ -50,7 +50,7 @@ namespace WebArtistasSQL.Repositorios
             if (trackencontrado == null)
                 throw new Exception("Track no existente");
             trackencontrado.title = nuevotracks.title;
-            dbUPECU.artists.artist = nuevotracks.artist;
+            trackencontrado.artist = nuevotracks.artist;
             dbUPECU.SaveChanges();
         }
 
